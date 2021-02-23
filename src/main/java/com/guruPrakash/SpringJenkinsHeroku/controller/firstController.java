@@ -1,16 +1,18 @@
 package com.guruPrakash.SpringJenkinsHeroku.controller;
 
-import org.springframework.stereotype.Controller;
+import com.guruPrakash.SpringJenkinsHeroku.classes.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class firstController {
 
-    String name="Guru";
+    @Autowired
+    Person person;
 
     @GetMapping("/")
     public String startUp(){
-        return "hello "+name;
+        return person.toString();
     }
 }
